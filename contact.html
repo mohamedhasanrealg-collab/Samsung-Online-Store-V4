@@ -4,392 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>تواصل معنا — Samsung Libya</title>
+
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* ===== CONTACT PAGE ===== */
-    .contact-hero {
-      background: linear-gradient(135deg, #dde6f0 0%, #e8f0fe 100%);
-      padding: 140px 8% 80px;
-      text-align: center;
-    }
-
-    .contact-hero h1 {
-      font-size: clamp(32px, 5vw, 56px);
-      font-weight: 700;
-      color: #1a1a2e;
-      margin-bottom: 16px;
-    }
-
-    .contact-hero h1 span { color: #1428a0; }
-
-    .contact-hero p {
-      font-size: 17px;
-      color: #555;
-      max-width: 500px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
-    /* ===== CONTACT SECTION ===== */
-    .contact-section {
-      padding: 80px 8%;
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 60px;
-      align-items: start;
-    }
-
-    /* معلومات التواصل */
-    .contact-info h2 {
-      font-size: 26px;
-      font-weight: 700;
-      color: #1a1a2e;
-      margin-bottom: 32px;
-    }
-
-    .info-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 18px;
-      padding: 24px;
-      background: #f8faff;
-      border-radius: 16px;
-      margin-bottom: 16px;
-      border: 1px solid #e8eef8;
-      transition: box-shadow 0.3s;
-    }
-
-    .info-card:hover {
-      box-shadow: 0 8px 24px rgba(20,40,160,0.08);
-    }
-
-    .info-icon {
-      width: 48px;
-      height: 48px;
-      background: #1428a0;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 20px;
-    }
-
-    .info-text h4 {
-      font-size: 14px;
-      color: #888;
-      margin-bottom: 4px;
-      font-weight: 500;
-    }
-
-    .info-text p {
-      font-size: 16px;
-      color: #1a1a2e;
-      font-weight: 600;
-      margin: 0;
-    }
-
-    .info-text a {
-      color: #1428a0;
-      text-decoration: none;
-    }
-
-    /* الفورم */
-    .contact-form-wrap {
-      background: #fff;
-      border-radius: 24px;
-      padding: 48px 40px;
-      box-shadow: 0 4px 40px rgba(0,0,0,0.07);
-      border: 1px solid #eef2ff;
-    }
-
-    .contact-form-wrap h2 {
-      font-size: 24px;
-      font-weight: 700;
-      color: #1a1a2e;
-      margin-bottom: 32px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-      color: #444;
-      margin-bottom: 8px;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1.5px solid #e0e7ff;
-      border-radius: 10px;
-      font-size: 15px;
-      font-family: 'IBM Plex Sans Arabic', sans-serif;
-      color: #1a1a2e;
-      background: #fafbff;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      outline: none;
-      box-sizing: border-box;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: #1428a0;
-      box-shadow: 0 0 0 3px rgba(20,40,160,0.08);
-      background: #fff;
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 130px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .submit-btn {
-      width: 100%;
-      padding: 14px;
-      background: #1428a0;
-      color: #fff;
-      border: none;
-      border-radius: 50px;
-      font-size: 16px;
-      font-weight: 700;
-      font-family: 'IBM Plex Sans Arabic', sans-serif;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-      margin-top: 8px;
-    }
-
-    .submit-btn:hover {
-      background: #0f1f80;
-      transform: translateY(-2px);
-    }
-
-    .success-msg {
-      display: none;
-      text-align: center;
-      padding: 20px;
-      background: #f0fdf4;
-      border-radius: 12px;
-      color: #16a34a;
-      font-weight: 600;
-      font-size: 16px;
-      margin-top: 16px;
-      border: 1px solid #bbf7d0;
-    }
-
-    /* ===== MESSAGES SECTION ===== */
-    .messages-section {
-      max-width: 1100px;
-      margin: 0 auto 80px;
-      padding: 0 8%;
-      display: none;
-    }
-
-    .messages-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .messages-header h2 {
-      font-size: 22px;
-      font-weight: 700;
-      color: #1a1a2e;
-    }
-
-    .msg-count {
-      font-size: 16px;
-      color: #1428a0;
-      font-weight: 600;
-    }
-
-    .clear-all-btn {
-      background: #fff0f0;
-      color: #dc2626;
-      border: 1.5px solid #fecaca;
-      padding: 8px 20px;
-      border-radius: 50px;
-      font-size: 13px;
-      font-weight: 600;
-      font-family: 'IBM Plex Sans Arabic', sans-serif;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .clear-all-btn:hover {
-      background: #fee2e2;
-      transform: translateY(-1px);
-    }
-
-    .no-messages {
-      text-align: center;
-      color: #999;
-      font-size: 15px;
-      padding: 40px 0;
-      display: none;
-    }
-
-    /* بطاقة رسالة */
-    .msg-card {
-      background: #fff;
-      border: 1px solid #e8eef8;
-      border-radius: 16px;
-      padding: 24px;
-      margin-bottom: 16px;
-      box-shadow: 0 2px 12px rgba(20,40,160,0.04);
-      transition: box-shadow 0.25s, transform 0.25s;
-    }
-
-    .msg-card:hover {
-      box-shadow: 0 8px 28px rgba(20,40,160,0.09);
-      transform: translateY(-2px);
-    }
-
-    .msg-card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .msg-meta {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .msg-name {
-      font-size: 15px;
-      font-weight: 700;
-      color: #1a1a2e;
-    }
-
-    .tag-subject {
-      background: rgba(20,40,160,0.08);
-      color: #1428a0;
-      padding: 3px 12px;
-      border-radius: 50px;
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    .msg-actions {
-      display: flex;
-      gap: 8px;
-    }
-
-    .msg-btn {
-      padding: 6px 16px;
-      border-radius: 50px;
-      font-size: 12px;
-      font-weight: 600;
-      font-family: 'IBM Plex Sans Arabic', sans-serif;
-      cursor: pointer;
-      border: 1.5px solid;
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .edit-btn {
-      background: #f0f4ff;
-      color: #1428a0;
-      border-color: #c7d2fe;
-    }
-
-    .edit-btn:hover {
-      background: #e0e7ff;
-      transform: translateY(-1px);
-    }
-
-    .delete-btn {
-      background: #fff0f0;
-      color: #dc2626;
-      border-color: #fecaca;
-    }
-
-    .delete-btn:hover {
-      background: #fee2e2;
-      transform: translateY(-1px);
-    }
-
-    .msg-card-body { margin-bottom: 12px; }
-
-    .msg-line {
-      font-size: 13px;
-      color: #666;
-      margin-bottom: 10px;
-    }
-
-    .msg-text {
-      font-size: 14px;
-      color: #333;
-      line-height: 1.65;
-      background: #f8faff;
-      border-radius: 10px;
-      padding: 12px 16px;
-      border-right: 3px solid #1428a0;
-      margin: 0;
-      white-space: pre-wrap;
-    }
-
-    .msg-card-footer {
-      border-top: 1px solid #f0f4ff;
-      padding-top: 10px;
-      margin-top: 4px;
-    }
-
-    .msg-date {
-      font-size: 12px;
-      color: #aaa;
-    }
-
-    /* فيدباك الإرسال */
-    .success-msg.error-msg {
-      background: #fff0f0;
-      border-color: #fecaca;
-      color: #dc2626;
-    }
-
-    /* responsive */
-    @media (max-width: 768px) {
-      .contact-section {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        padding: 60px 6%;
-      }
-      .form-row { grid-template-columns: 1fr; }
-      .contact-form-wrap { padding: 32px 24px; }
-      .messages-section { padding: 0 6%; }
-      .msg-card-header { flex-direction: column; align-items: flex-start; }
-      .msg-actions { width: 100%; justify-content: flex-end; }
-    }
-  </style>
+  <link rel="stylesheet" href="contact.css" />
 </head>
+
 <body>
 
   <!-- NAV -->
   <nav>
     <a href="index.html" class="nav-logo">SAMSUNG</a>
+
     <ul class="nav-links">
       <li><a href="index.html#categories">الفئات</a></li>
       <li><a href="index.html#products">المنتجات</a></li>
@@ -398,28 +23,25 @@
       <li><a href="index.html#newsletter" class="nav-cta">اشترك الآن</a></li>
     </ul>
 
-    <!-- زر الهمبرغر (جوال فقط) -->
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="فتح القائمة" onclick="toggleMobileMenu()">
-      <span></span><span></span><span></span>
+    <button
+      class="nav-hamburger"
+      id="nav-hamburger"
+      aria-label="فتح القائمة"
+      onclick="toggleMobileMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
   </nav>
-
-  <!-- القائمة الجانبية للجوال -->
-  <div class="nav-drawer" id="nav-drawer">
-    <ul>
-      <li><a href="index.html#categories" onclick="closeMobileMenu()">🗂 الفئات</a></li>
-      <li><a href="index.html#products" onclick="closeMobileMenu()">📱 المنتجات</a></li>
-      <li><a href="index.html#featured" onclick="closeMobileMenu()">⭐ المميز</a></li>
-      <li><a href="index.html#testimonials" onclick="closeMobileMenu()">💬 آراء العملاء</a></li>
-    </ul>
-    <a href="index.html#newsletter" class="nav-cta-drawer" onclick="closeMobileMenu()">اشترك الآن ✨</a>
-  </div>
-  <div class="nav-overlay" id="nav-overlay" onclick="closeMobileMenu()"></div>
 
   <!-- HERO -->
   <div class="contact-hero">
     <h1>تواصل <span>معنا</span></h1>
-    <p>نحن هنا لمساعدتك — سواء كان لديك سؤال عن منتج أو تحتاج دعماً فنياً</p>
+
+    <p>
+      نحن هنا لمساعدتك — سواء كان لديك سؤال عن منتج أو تحتاج دعماً فنياً
+    </p>
   </div>
 
   <!-- CONTACT SECTION -->
@@ -427,26 +49,36 @@
 
     <!-- معلومات التواصل -->
     <div class="contact-info">
+
       <h2>معلومات التواصل</h2>
 
       <div class="info-card">
         <div class="info-icon">📞</div>
+
         <div class="info-text">
           <h4>رقم الهاتف</h4>
-          <p><a href="tel:+218910000000">218-91-000-0000+</a></p>
+          <p>
+            <a href="tel:+218910000000">218-91-000-0000+</a>
+          </p>
         </div>
       </div>
 
       <div class="info-card">
         <div class="info-icon">📧</div>
+
         <div class="info-text">
           <h4>البريد الإلكتروني</h4>
-          <p><a href="mailto:support@samsung-libya.ly">support@samsung-libya.ly</a></p>
+          <p>
+            <a href="mailto:support@samsung-libya.ly">
+              support@samsung-libya.ly
+            </a>
+          </p>
         </div>
       </div>
 
       <div class="info-card">
         <div class="info-icon">📍</div>
+
         <div class="info-text">
           <h4>العنوان</h4>
           <p>طرابلس، ليبيا — شارع عمر المختار</p>
@@ -455,35 +87,47 @@
 
       <div class="info-card">
         <div class="info-icon">🕐</div>
+
         <div class="info-text">
           <h4>ساعات العمل</h4>
           <p>السبت – الخميس: 9 صباحاً – 6 مساءً</p>
         </div>
       </div>
+
     </div>
 
     <!-- الفورم -->
     <div class="contact-form-wrap">
+
       <h2>أرسل لنا رسالة</h2>
 
       <div class="form-row">
+
         <div class="form-group">
           <label>الاسم الكامل</label>
           <input type="text" id="name" placeholder="أدخل اسمك" />
         </div>
+
         <div class="form-group">
           <label>رقم الهاتف</label>
           <input type="tel" id="phone" placeholder="09xxxxxxxx" />
         </div>
+
       </div>
 
       <div class="form-group">
         <label>البريد الإلكتروني</label>
-        <input type="email" id="email" placeholder="example@email.com" />
+
+        <input
+          type="email"
+          id="email"
+          placeholder="example@email.com"
+        />
       </div>
 
       <div class="form-group">
         <label>الموضوع</label>
+
         <select id="subject">
           <option value="">اختر الموضوع</option>
           <option>استفسار عن منتج</option>
@@ -496,278 +140,61 @@
 
       <div class="form-group">
         <label>الرسالة</label>
-        <textarea id="message" placeholder="اكتب رسالتك هنا..."></textarea>
+
+        <textarea
+          id="message"
+          placeholder="اكتب رسالتك هنا..."
+        ></textarea>
       </div>
 
-      <button class="submit-btn" id="submit-btn" onclick="sendMessage()">إرسال الرسالة ✉️</button>
+      <button
+        class="submit-btn"
+        id="submit-btn"
+        onclick="sendMessage()"
+      >
+        إرسال الرسالة ✉️
+      </button>
+
       <div class="success-msg" id="success-msg"></div>
+
     </div>
 
   </div>
 
-  <!-- ===== سجل الرسائل ===== -->
+  <!-- سجل الرسائل -->
   <div class="messages-section" id="messages-section">
+
     <div class="messages-header">
-      <h2>📋 سجل الرسائل <span class="msg-count" id="msg-count"></span></h2>
-      <button class="clear-all-btn" onclick="clearAllMessages()">🗑 مسح الكل</button>
+
+      <h2>
+        📋 سجل الرسائل
+        <span class="msg-count" id="msg-count"></span>
+      </h2>
+
+      <button class="clear-all-btn" onclick="clearAllMessages()">
+        🗑 مسح الكل
+      </button>
+
     </div>
+
     <div class="messages-list" id="messages-list"></div>
-    <p class="no-messages" id="no-messages">لا توجد رسائل محفوظة بعد.</p>
+
+    <p class="no-messages" id="no-messages">
+      لا توجد رسائل محفوظة بعد.
+    </p>
+
   </div>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
-      <p class="footer-copy">© 2025 Samsung Libya. جميع الحقوق محفوظة.</p>
+      <p class="footer-copy">
+        © 2025 Samsung Libya. جميع الحقوق محفوظة.
+      </p>
     </div>
   </footer>
 
-  <script>
-    /* ═══════════════════════════════════════════
-       LOCAL STORAGE KEY
-    ═══════════════════════════════════════════ */
-    const STORAGE_KEY = 'samsung_libya_messages';
-    let editingId = null; // null = وضع إضافة | string = وضع تعديل
-
-    /* ═══════════════════════════════════════════
-       HELPERS
-    ═══════════════════════════════════════════ */
-    function getMessages() {
-      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
-      catch { return []; }
-    }
-
-    function saveMessages(msgs) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(msgs));
-    }
-
-    function formatDate(iso) {
-      const d = new Date(iso);
-      return d.toLocaleDateString('ar-LY', { year:'numeric', month:'short', day:'numeric' })
-           + ' — ' + d.toLocaleTimeString('ar-LY', { hour:'2-digit', minute:'2-digit' });
-    }
-
-    function resetForm() {
-      ['name','email','phone','subject','message'].forEach(id => {
-        document.getElementById(id).value = '';
-      });
-      editingId = null;
-      const btn = document.getElementById('submit-btn');
-      btn.textContent = 'إرسال الرسالة ✉️';
-      btn.style.background = '';
-      btn.disabled = false;
-      document.getElementById('success-msg').style.display = 'none';
-    }
-
-    /* ═══════════════════════════════════════════
-       RENDER MESSAGES LIST
-    ═══════════════════════════════════════════ */
-    function renderMessages() {
-      const msgs   = getMessages();
-      const list   = document.getElementById('messages-list');
-      const noMsg  = document.getElementById('no-messages');
-      const count  = document.getElementById('msg-count');
-      const section = document.getElementById('messages-section');
-
-      count.textContent = msgs.length ? `(${msgs.length})` : '';
-      section.style.display = msgs.length ? 'block' : 'none';
-
-      if (!msgs.length) {
-        list.innerHTML = '';
-        noMsg.style.display = 'block';
-        return;
-      }
-
-      noMsg.style.display = 'none';
-      list.innerHTML = msgs.map(m => `
-        <div class="msg-card" id="card-${m.id}">
-          <div class="msg-card-header">
-            <div class="msg-meta">
-              <span class="msg-name">👤 ${escHtml(m.name)}</span>
-              <span class="msg-subject tag-subject">${escHtml(m.subject || 'بدون موضوع')}</span>
-            </div>
-            <div class="msg-actions">
-              <button class="msg-btn edit-btn"   onclick="editMessage('${m.id}')">✏️ تعديل</button>
-              <button class="msg-btn delete-btn" onclick="deleteMessage('${m.id}')">🗑 حذف</button>
-            </div>
-          </div>
-          <div class="msg-card-body">
-            <p class="msg-line">📧 ${escHtml(m.email)}${m.phone ? '  |  📞 ' + escHtml(m.phone) : ''}</p>
-            <p class="msg-text">${escHtml(m.message)}</p>
-          </div>
-          <div class="msg-card-footer">
-            <span class="msg-date">🕐 ${formatDate(m.date)}</span>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function escHtml(str) {
-      return String(str)
-        .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-        .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-    }
-
-    /* ═══════════════════════════════════════════
-       SEND / SAVE
-    ═══════════════════════════════════════════ */
-    function sendMessage() {
-      const name    = document.getElementById('name').value.trim();
-      const email   = document.getElementById('email').value.trim();
-      const phone   = document.getElementById('phone').value.trim();
-      const subject = document.getElementById('subject').value.trim();
-      const message = document.getElementById('message').value.trim();
-
-      if (!name || !email || !message) {
-        showFeedback('يرجى تعبئة الاسم والإيميل والرسالة على الأقل', 'error');
-        return;
-      }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        showFeedback('البريد الإلكتروني غير صحيح', 'error');
-        return;
-      }
-
-      const btn = document.getElementById('submit-btn');
-      btn.textContent = 'جاري الحفظ...';
-      btn.disabled = true;
-
-      setTimeout(() => {
-        const msgs = getMessages();
-
-        if (editingId) {
-          // ── تعديل رسالة موجودة ──
-          const idx = msgs.findIndex(m => m.id === editingId);
-          if (idx !== -1) {
-            msgs[idx] = { ...msgs[idx], name, email, phone, subject, message, editedAt: new Date().toISOString() };
-          }
-          saveMessages(msgs);
-          showFeedback('✅ تم تحديث الرسالة بنجاح!', 'success');
-        } else {
-          // ── رسالة جديدة ──
-          const newMsg = {
-            id: 'msg_' + Date.now(),
-            name, email, phone, subject, message,
-            date: new Date().toISOString()
-          };
-          msgs.unshift(newMsg); // أضف في الأول
-          saveMessages(msgs);
-          showFeedback('✅ تم حفظ رسالتك بنجاح!', 'success');
-        }
-
-        resetForm();
-        renderMessages();
-      }, 800);
-    }
-
-    /* ═══════════════════════════════════════════
-       EDIT
-    ═══════════════════════════════════════════ */
-    function editMessage(id) {
-      const msgs = getMessages();
-      const m = msgs.find(msg => msg.id === id);
-      if (!m) return;
-
-      editingId = id;
-      document.getElementById('name').value    = m.name;
-      document.getElementById('email').value   = m.email;
-      document.getElementById('phone').value   = m.phone || '';
-      document.getElementById('subject').value = m.subject || '';
-      document.getElementById('message').value = m.message;
-
-      const btn = document.getElementById('submit-btn');
-      btn.textContent = '💾 حفظ التعديلات';
-      btn.style.background = '#0f7b3e';
-      btn.disabled = false;
-
-      // scroll للفورم
-      document.querySelector('.contact-form-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    /* ═══════════════════════════════════════════
-       DELETE ONE
-    ═══════════════════════════════════════════ */
-    function deleteMessage(id) {
-      if (!confirm('هل تريد حذف هذه الرسالة؟')) return;
-
-      // إذا كانت الرسالة قيد التعديل، أعد تهيئة الفورم
-      if (editingId === id) resetForm();
-
-      const msgs = getMessages().filter(m => m.id !== id);
-      saveMessages(msgs);
-
-      // أنيميشن حذف
-      const card = document.getElementById('card-' + id);
-      if (card) {
-        card.style.transition = 'opacity 0.3s, transform 0.3s';
-        card.style.opacity = '0';
-        card.style.transform = 'translateX(40px)';
-        setTimeout(renderMessages, 300);
-      } else {
-        renderMessages();
-      }
-    }
-
-    /* ═══════════════════════════════════════════
-       CLEAR ALL
-    ═══════════════════════════════════════════ */
-    function clearAllMessages() {
-      const msgs = getMessages();
-      if (!msgs.length) return;
-      if (!confirm(`هل تريد حذف جميع الرسائل (${msgs.length})؟`)) return;
-      localStorage.removeItem(STORAGE_KEY);
-      resetForm();
-      renderMessages();
-    }
-
-    /* ═══════════════════════════════════════════
-       FEEDBACK TOAST
-    ═══════════════════════════════════════════ */
-    function showFeedback(text, type) {
-      const el = document.getElementById('success-msg');
-      el.textContent = text;
-      el.className   = 'success-msg ' + (type === 'error' ? 'error-msg' : '');
-      el.style.display = 'block';
-      if (type !== 'error') {
-        setTimeout(() => { el.style.display = 'none'; }, 4000);
-      }
-    }
-
-    /* ═══════════════════════════════════════════
-       INIT
-    ═══════════════════════════════════════════ */
-    document.addEventListener('DOMContentLoaded', renderMessages);
-
-    // Navbar scroll effect
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-      nav.style.background = window.scrollY > 60
-        ? 'rgba(255,255,255,0.98)'
-        : 'rgba(255,255,255,0.92)';
-    });
-
-    // Mobile menu
-    function toggleMobileMenu() {
-      const drawer    = document.getElementById('nav-drawer');
-      const hamburger = document.getElementById('nav-hamburger');
-      const overlay   = document.getElementById('nav-overlay');
-      const isOpen    = drawer.classList.contains('open');
-      if (isOpen) { closeMobileMenu(); }
-      else {
-        drawer.classList.add('open');
-        hamburger.classList.add('open');
-        overlay.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      }
-    }
-
-    function closeMobileMenu() {
-      ['nav-drawer','nav-hamburger','nav-overlay'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.classList.remove('open');
-      });
-      document.body.style.overflow = '';
-    }
-  </script>
+  <script src="contact.js"></script>
 
 </body>
 </html>
